@@ -5,9 +5,14 @@
     <title>Document</title>
   </head>
   <body>
-    <img src="#" />
+    <div class="parent-div">
+      <img src="#" />
+      <button class="random-gif-btn">Random Gif</button>
+    </div>
+
     <script>
       const img = document.querySelector("img");
+      const randomGifBtn = document.querySelector(".random-gif-btn");
       fetch(
         "https://api.giphy.com/v1/gifs/translate?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY&s=cats",
       )
@@ -17,6 +22,10 @@
         .then(function (response) {
           img.src = response.data.images.original.url;
         });
+
+      randomGifBtn.addEventListener("click", () => {
+        alert("clicked");
+      });
     </script>
   </body>
 </html>
