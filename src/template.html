@@ -23,8 +23,18 @@
           img.src = response.data.images.original.url;
         });
 
+      //button code
       randomGifBtn.addEventListener("click", () => {
-        alert("clicked");
+        fetch(
+          "api.giphy.com/v1/gifs/random?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY",
+        )
+          .then(function (response) {
+            console.log(response.json());
+            return response.json();
+          })
+          .then(function (response) {
+            img.src = response.data.images.original.url;
+          });
       });
     </script>
   </body>
