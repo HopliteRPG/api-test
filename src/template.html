@@ -10,18 +10,6 @@
       <button class="random-gif-btn">Random Gif</button>
     </div>
 
-    <script>
-      const img = document.querySelector("img");
-      const randomGifBtn = document.querySelector(".random-gif-btn");
-      fetch(
-        "https://api.giphy.com/v1/gifs/translate?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY&s=cats",
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (response) {
-          img.src = response.data.images.original.url;
-        });
-    </script>
+    <script></script>
   </body>
 </html>
