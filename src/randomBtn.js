@@ -1,8 +1,8 @@
 export { randomGifFunc };
-const img = document.querySelector("img");
-const randomGifBtn = document.querySelector(".random-gif-btn");
 
 function randomGifFunc() {
+  const img = document.querySelector("img");
+  const randomGifBtn = document.querySelector(".random-gif-btn");
   randomGifBtn.addEventListener("click", () => {
     fetch(
       "https://api.giphy.com/v1/gifs/random?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY",

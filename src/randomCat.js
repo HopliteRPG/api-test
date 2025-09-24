@@ -1,7 +1,8 @@
 export { catOnStartUp };
-const img = document.querySelector("img");
 
 function catOnStartUp() {
+  const img = document.querySelector(".displayImg");
+  console.log(img);
   fetch(
     "https://api.giphy.com/v1/gifs/translate?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY&s=cats",
   )
