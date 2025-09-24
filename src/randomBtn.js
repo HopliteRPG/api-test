@@ -5,7 +5,7 @@ function randomGifFunc() {
   const randomGifBtn = document.querySelector(".random-gif-btn");
   randomGifBtn.addEventListener("click", () => {
     fetch(
-      "https://api.giphy.com/v1/gifs/random?api_key=iynhuQUGqRgxLYzfuv3bOxaTvkLzKHeY",
+      "https://api.giphy.com/v1/gifs/random?api_key=G6eaRdpSfKNxkPxUaTfZqlQTunEOpd0y",
     )
       .then(function (response) {
         console.log(response.clone().json());
