@@ -1,3 +1,5 @@
+export { createSearchForm };
+
 const body = document.querySelector("body");
 const dialogCreate = document.createElement("dialog");
 const formCreate = document.createElement("form");
@@ -44,18 +46,13 @@ function createLabel(div, className, text) {
   return { cloneLabelCreate };
 }
 
-function createInput(div, type, name, requiredOrNot) {
+function createInput(div, type, name) {
   let cloneInputCreate = inputCreate.cloneNode(true);
   cloneInputCreate.classList.add(name);
   div.appendChild(cloneInputCreate);
   cloneInputCreate.type = type;
   cloneInputCreate.setAttribute("name", name);
 
-  if (requiredOrNot === true) {
-    cloneInputCreate.required = true;
-  } else if (requiredOrNot === false) {
-    cloneInputCreate.required = false;
-  }
   return { cloneInputCreate };
 }
 
@@ -81,4 +78,14 @@ function createP(div, pText, pClass) {
   div.appendChild(clonePCreate);
 }
 
-function createSearchForm() {}
+function createSearchForm() {
+  let searchDialog = createDialog(body);
+  let searchForm = createForm(searchDialog.cloneDialogCreate);
+  let formContentDiv = createDivSection(
+    searchForm.cloneFormCreate,
+    "formContentDiv",
+  );
+  createLabel(formContentDiv.cloneDivCreate, "search-label", "Search a Gif");
+  createInput(formContentDiv.cloneDivCreate, "text", "search-input");
+  createButton(formContentDiv.cloneDivCreate, "Search", "search-button");
+}
