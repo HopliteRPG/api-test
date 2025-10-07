@@ -1,5 +1,4 @@
 export { catOnStartUp };
-const img = document.querySelector("img");
 
 function catOnStartUp() {
   fetch(
@@ -9,6 +8,8 @@ function catOnStartUp() {
       return response.json();
     })
     .then(function (response) {
-      img.src = response.data.images.original.url;
+      const displayImg = document.querySelector(".displayImg");
+      console.log(displayImg);
+      displayImg.src = response.data.images.original.url;
     });
 }
