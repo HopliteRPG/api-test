@@ -5,6 +5,8 @@ const divCreate = document.createElement("div");
 const buttonCreate = document.createElement("button");
 const pCreate = document.createElement("p");
 const imageCreate = document.createElement("IMG");
+const formCreate = document.createElement("form");
+const inputCreate = document.createElement("input");
 
 function createDivSection(parentDiv, className) {
   let cloneDivCreate = divCreate.cloneNode(true);
@@ -35,12 +37,48 @@ function createImage(div, imgClass) {
   div.appendChild(cloneImageCreate);
 }
 
+function createForm(parentDiv) {
+  let cloneFormCreate = formCreate.cloneNode(true);
+  parentDiv.appendChild(cloneFormCreate);
+  return { cloneFormCreate };
+}
+
+function createInput(div, type, name, inputName) {
+  let cloneInputCreate = inputCreate.cloneNode(true);
+  cloneInputCreate.classList.add(name);
+  div.appendChild(cloneInputCreate);
+  cloneInputCreate.type = type;
+  cloneInputCreate.setAttribute("name", name);
+  cloneInputCreate.classList.add(inputName);
+  return { cloneInputCreate };
+}
+
 function createFrontUi() {
   let parentDiv = createDivSection(body, "parent-div");
   let topSearchSection = createDivSection(
     parentDiv.cloneDivCreate,
     "top-search-section",
   );
+  let searchbarDiv = createDivSection(
+    topSearchSection.cloneDivCreate,
+    "searchBarDiv",
+  );
+
+  let searchbarForm = createForm(searchbarDiv.cloneDivCreate);
+
+  let searchbarInput = createInput(
+    searchbarForm.cloneFormCreate,
+    "input",
+    "searchbarInput",
+    "searchbarInput",
+  );
+
+  let searchButton = createButton(
+    searchbarForm.cloneFormCreate,
+    "Search",
+    "searchButton",
+  );
+
   let randomBtn = createButton(
     topSearchSection.cloneDivCreate,
     "Random Gif",
