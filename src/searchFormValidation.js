@@ -8,6 +8,12 @@ function searchForGif() {
 
   const searchBtn = document.querySelector(".searchButton");
 
+  searchBar.addEventListener("input", (event) => {
+    if (searchBar.value === "") {
+      searchBar.setCustomValidity("Enter a word");
+    }
+  });
+
   searchBtn.addEventListener("click", (event) => {
     event.preventDefault();
     const img = document.querySelector(".displayImg");
@@ -24,6 +30,9 @@ function searchForGif() {
       .then(function (response) {
         img.src = response.data.images.original.url;
         console.log(response);
+      })
+      .catch(function (err) {
+        console.error(err);
       });
   });
 }
